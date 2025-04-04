@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.Design;
-using System.Security.Cryptography;
-
-class Program
+﻿class Program
 {
     static void Main(string[] args)
     {
-        
+        int score = 0;
         bool menuRunning = true;
         int level = 1;
         while (menuRunning)
@@ -37,17 +34,19 @@ class Program
                     if (userInputInt < numberToGuess)
                     {
                         Console.Clear();
-                        Console.WriteLine("YOUR GUESS IS TOO LOW!");
+                        score -= 20;
+                        Console.WriteLine($"YOUR GUESS IS TOO LOW!\nYour score now is: {score}");
                     }
                     else if (userInputInt > numberToGuess)
                     {
                         Console.Clear();
-                        Console.WriteLine("YOUR GUESS IS TOO HIGH!");
+                        Console.WriteLine($"YOUR GUESS IS TOO HIGH!\nYour score now is: {score}");
                     }
                     else if (userInputInt == numberToGuess)
                     {
                         Console.Clear();
-                        Console.WriteLine("YOU GUESSED IT RIGHT!");
+                        score += 200;
+                        Console.WriteLine($"YOU GUESSED IT RIGHT!\nYour score now is: {score}");
                         Console.WriteLine($"Do you want to go to level {level + 1}?   (y/n)");
                         string answer = Console.ReadLine();
 
